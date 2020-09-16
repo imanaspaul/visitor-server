@@ -45,7 +45,25 @@ def create_visitor(request):
         )
     if phone == None:
         return Response({
-                "message": "Phone number is requred!"
+                "detail": "Phone number is requred!"
+            },
+            status=status.HTTP_403_FORBIDDEN
+        )
+    if first_name == "":
+        return Response({
+                "detail": "First name should be atleast 1 character"
+            },
+            status=status.HTTP_403_FORBIDDEN
+        )
+    if last_name == "":
+        return Response({
+                "detail": "Last name should be atleast 1 character"
+            },
+            status=status.HTTP_403_FORBIDDEN
+        )
+    if phone == "":
+        return Response({
+                "message": "Phone number should be atleast 1 character"
             },
             status=status.HTTP_403_FORBIDDEN
         )
@@ -84,3 +102,6 @@ def create_visitor(request):
                 },
                 status=status.HTTP_201_CREATED
         )
+
+
+

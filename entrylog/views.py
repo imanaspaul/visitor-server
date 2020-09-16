@@ -1,4 +1,4 @@
-import datetime
+from django.utils import timezone
 from rest_framework import filters
 from rest_framework import status
 from rest_framework.decorators import api_view
@@ -39,7 +39,7 @@ def update_log_entry(request):
                 is_checkout = valid_entry.checkout_time
 
                 if is_checkout is None:
-                    valid_entry.checkout_time = datetime.datetime.now()
+                    valid_entry.checkout_time = timezone.now()
                     valid_entry.save()
 
                     return Response(
