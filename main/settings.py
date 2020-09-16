@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # third party apps
+    'corsheaders',
     'rest_framework',
 
     # Internal apps
@@ -43,6 +44,10 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    # Third party package middleware
+    'corsheaders.middleware.CorsMiddleware',
+
+    # Internals
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -53,6 +58,12 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'main.urls'
+
+
+# Cors allowed origins
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8080"
+]
 
 TEMPLATES = [
     {
