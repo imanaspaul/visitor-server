@@ -33,7 +33,8 @@ def create_visitor(request):
     # checing the first name is provided or not
     if first_name == None:
         return Response({
-                "message": "First name is requred!"
+                "Failure": "Error", 
+                "Error_list": {"fist_name": "This field is required"}
             },
             status=status.HTTP_403_FORBIDDEN
         )
