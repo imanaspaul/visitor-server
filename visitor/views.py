@@ -33,8 +33,7 @@ def create_visitor(request):
     # checing the first name is provided or not
     if first_name == None:
         return Response({
-                "Failure": "Error", 
-                "Error_list": {"fist_name": "This field is required"}
+                "message": "First name is requred!"
             },
             status=status.HTTP_403_FORBIDDEN
         )
@@ -46,19 +45,19 @@ def create_visitor(request):
         )
     if phone == None:
         return Response({
-                "detail": "Phone number is requred!"
+                "message": "Phone number is requred!"
             },
             status=status.HTTP_403_FORBIDDEN
         )
     if first_name == "":
         return Response({
-                "detail": "First name should be atleast 1 character"
+                "message": "First name should be atleast 1 character"
             },
             status=status.HTTP_403_FORBIDDEN
         )
     if last_name == "":
         return Response({
-                "detail": "Last name should be atleast 1 character"
+                "message": "Last name should be atleast 1 character"
             },
             status=status.HTTP_403_FORBIDDEN
         )
